@@ -1,5 +1,6 @@
 package com.mygdx.helicopter;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -47,11 +48,10 @@ public class Fondo {
     public void pintate(SpriteBatch miSB) {
         TextureRegion ventana;
 
-        ventana = new TextureRegion(imgFondo,posX,posY,anchoVentana,altoVentana);
+        ventana = new TextureRegion(imgFondo,posX,posY,altoVentana,anchoVentana);
 
         miSB.begin();
-        //miSB.draw(ventana,0,0); no se realmente cual de los dos draw usar
-        miSB.draw(imgFondo,0,0,anchoVentana,altoVentana);
+        miSB.draw(ventana, 0, 0);
         miSB.end();
 
     }

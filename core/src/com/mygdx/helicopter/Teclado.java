@@ -6,22 +6,23 @@ import com.badlogic.gdx.Gdx;
 //Ya segun vayamos avanzando se cambia para meter boton de pausa,disparos,loquesea
 
 public class Teclado {
+
     private boolean pulsado;
 
 
-    public Teclado(boolean pulsado){
+    public Teclado(){
         pulsado = false;
 
     }
 
     public void mePulsan(){
         byte i;
-        if (Gdx.input.justTouched()){
+        if (Gdx.input.isTouched()){
             pulsado = true;
+        }
+        else{
             pulsado = false;
         }
-
-            //pulsado = false;
     }
 
 

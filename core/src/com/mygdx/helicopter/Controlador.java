@@ -87,8 +87,11 @@ public class Controlador {
     }
     private void controlEstadoJugando() {    //Vainas de juego que no esta pausado
         //Movemos la nave
+
+        et.mePulsan();
+
+
         chopper.moverse(et);
-        escena.pintate(batch);
 
     }
     private void controlEstadoPantallaInicio() {//Vainas de juego que esta pausado
@@ -97,15 +100,12 @@ public class Controlador {
 
         recienTocado = Gdx.input.justTouched();
         if (recienTocado) {                     //Si me tocan me ensiendo
-            et.mePulsan();
-            if (et.pulsado()) {
                 estadoJuego = PANTALLA_JUEGO;
-                this.dispose();
                 inicializarObjetos();
             }
         }
 
-    }
+
     private void inicializarObjetos() {         //A crear to lo que nos va a hacer falta
         //Creamos el objeto batch para dibujar
         batch = new SpriteBatch();
@@ -114,15 +114,16 @@ public class Controlador {
         escena = new Fondo(0,0,Gdx.graphics.getHeight(),Gdx.graphics.getWidth(),"fondo.png");
 
         //Creo el teclado
-        et = new Teclado(Gdx.input.justTouched());
+        et = new Teclado();
 
         //Creo el helicoptero, esta de puta pena hecho y dudo que funcione
-        chopper = new Helicopter(Gdx.graphics.getWidth() / 2,Gdx.graphics.getHeight() / 2,2.00f,"helicoptero.png");
+        chopper = new Helicopter(Gdx.graphics.getWidth() / 2,Gdx.graphics.getHeight() / 2,-2.00f);
 
     }
     private void dibujarPantallaInicial() {
 
+        escena.pintate(batch);
         chopper.pintarse(batch);
-        //escena.pintate(batch);
+
     }
 }

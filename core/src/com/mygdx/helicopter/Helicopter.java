@@ -41,7 +41,7 @@ public class Helicopter {
 
     }
     //El string nombreImg puede que este mal
-    public Helicopter(float nuevaPosX, float nuevaPosY, float nuevaVelY, String nombreImg) {
+    public Helicopter(float nuevaPosX, float nuevaPosY, float nuevaVelY) {
         posX = nuevaPosX;
         posY = nuevaPosY;
         velY = nuevaVelY;
@@ -57,11 +57,13 @@ public class Helicopter {
     public void moverse(Teclado et) {  //Da igual al principio o al final ya que se va a ejecutar igual
 
         if (et.pulsado()) {      //While para que haya que mantener pulsado
-            posY -=velY;
+            posY -= velY;
         }
-
+        else {
             posY += velY;              //Si no se pulsa se va pabajo
+        }
     }
+
 
 
 
